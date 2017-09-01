@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{ {Images/} }
+\usepackage{amsmath}
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
+}
+
+\title{Physics C191\\Problem Set 2}
+\author{Joshua Levy}
+\date{January 28th, 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Answers}
+\subsection{Problem 1}
+    \begin{enumerate}
+        \item The second input (target) of the CNOT gate is $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{0}-\ket{1})$. We know the CNOT transformation performs the operation of flipping the second input (target) if and only if the first (control) qubit is $\ket{1}$, but only in the standard basis. However, we consider qubit 2 to be $\ket{\phi} = \frac{1}{\sqrt{2}}(\ket{0}-\ket{1}) = \ket{-}$ in the hadamard basis. We see that if the second qubit is $\ket{-} = \frac{1}{\sqrt{2}}(\ket{0}-\ket{1})$, and the first qubit is $\ket{\psi} = a\ket{0}+b\ket{1}$, then CNOT applied to the tensor product between $\ket{\psi}$ and $\ket{\phi}$ is:
+        \begin{equation}
+            CNOT \ket{\psi}\tens{}\ket{\phi} = CNOT (a\ket{0}+b\ket{1})\tens{} \frac{1}{\sqrt{2}}(\ket{0}-\ket{1})
+        \end{equation}
+        And introducing the formalism that will be produced in the second part of problem 1 (see eqs.(6,8-11)), and the result of this operation is:
+        \begin{equation}
+            CNOT \ket{\psi}\tens{}\ket{\phi} = \begin{bmatrix}
+            1 &    0  &   0    & 0\\
+            0   & 1    & 0 &    0\\
+            0    & 0   & 0   & 1\\
+             0   & 0 &    1   &  0\\
+            \end{bmatrix}(\frac{1}{\sqrt{2}})\begin{bmatrix}
+            a\\-a\\b\\-b
+            \end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+            a\\-a\\-b\\b
+            \end{bmatrix} = \frac{1}{\sqrt{2}}(a\ket{00}+-a\ket{01}-b\ket{10}+b\ket{11})
+        \end{equation}
+        which factors out to produce:
+        \begin{equation}
+            \frac{1}{\sqrt{2}}(a\ket{00}+-a\ket{01}-b\ket{10}+b\ket{11} )= (a\ket{0}-b\ket{1})\tens{}\frac{1}{\sqrt{2}}(\ket{0}-\ket{1})
+        \end{equation}
+        So  we see that performing the CNOT gate on two qubits with the second qubit being $\ket{-}$, results in the phase flip of the first qubit. After the gate is applied, $\ket{\psi}_{new} = a\ket{0}-b\ket{1} = Z\ket{\psi}_{original}$ if Z is the phase flip transformation.
+        \item Suppose we wish to apply the CNOT gate in the Hadamard basis. We shall see that the this results in a CNOT gate transformation producing the swapping of the control and target qubits. We define two unitary transformations, $H_1$ and $H_2$, hadamard transformations applied on qubit 1/control (denote as $\ket{\psi}$) and qubit 2/target $\ket{\phi}$) respectively. Both transformations are described by:
+        \begin{equation}
+            H_i = \frac{1}{sqrt{2}}
+            \begin{bmatrix}
+            1 & 1 \\ 1 & -1
+            \end{bmatrix}
+        \end{equation}
+        And (calculated using matlab): 
+        \begin{equation}
+            H = H_1\tens{} H_2 = \frac{1}{2}
+            \begin{bmatrix}
+            1 &    1  &   1    & 1\\
+            1   & -1    & 1 &    -1\\
+            1    & 1   & -1   & -1\\
+             1   & -1 &    -1   &  1\\
+            \end{bmatrix}
+        \end{equation}
+        where H is a Hadamard transformation on the tensor product of both qubits, $\ket{\psi}\tens{}\ket{\phi}$.\\ The CNOT transformation on the tensor product of the qubits is:
+        \begin{equation}
+            CNOT = 
+            \begin{bmatrix}
+            1 &    0  &   0    & 0\\
+            0   & 1    & 0 &    0\\
+            0    & 0   & 0   & 1\\
+             0   & 0 &    1   &  0\\
+            \end{bmatrix}
+        \end{equation}
+        In order to see whether the CNOT gate applied in the Hadamard basis results in applying a CNOT gate to the swapped target and control qubits, the following relationship must hold true:
+        \begin{equation}
+            U\ket{\psi}\tens{}\ket{\phi} = H*CNOT*H \ket{\psi}\tens{}\ket{\phi} = CNOT_{2} \ket{\psi}\tens{}\ket{\phi} 
+        \end{equation}
+        The property of $CNOT_{2}$ is that it applies the CNOT operation with qubit 2 as the control and qubit 1 as the target.
+        Define:
+        \begin{equation}
+            \ket{\psi} = a \ket{0} + b\ket{1}
+        \end{equation}
+        \begin{equation}
+            \ket{\phi} = c \ket{0} + d\ket{1}
+        \end{equation}
+        And if:
+        \begin{equation}
+            \alpha_{00}\ket{00}+\alpha_{01}\ket{01}+\alpha_{10}\ket{10}+\alpha_{11}\ket{11} = \begin{bmatrix}
+            \alpha_{00}\\\alpha_{01}\\\alpha_{10}\\\alpha_{11}
+            \end{bmatrix}
+        \end{equation}
+        Then:
+        \begin{equation}
+            \ket{\psi}\tens{}\ket{\phi} = \begin{bmatrix}
+            ac\\ad\\bc\\bd
+            \end{bmatrix}
+        \end{equation}
+        Applying $CNOT_{2}$ to $\ket{\psi}\tens{}\ket{\phi}$, we see that:
+        \begin{equation}
+            CNOT_{2} \ket{\psi}\tens{}\ket{\phi} = CNOT_{2} \begin{bmatrix}
+            ac\\ad\\bc\\bd
+            \end{bmatrix} = CNOT_{2} (ac\ket{00}+ad\ket{01}+bc\ket{10}+bd\ket{11}) = ac\ket{00}+bd\ket{01}+bc\ket{10}+ad\ket{11} = \begin{bmatrix}
+            ac\\bd\\bc\\ad
+            \end{bmatrix}
+        \end{equation}
+        And using MATLAB, U is found to be:
+        \begin{equation}
+            U = 
+            \begin{bmatrix}
+            1 &    0  &   0    & 0\\
+            0   & 0    & 0 &    1\\
+            0    & 0   & 1   & 0\\
+             0   & 1 &    0   &  0\\
+            \end{bmatrix}
+        \end{equation}
+        Performing the operations on MATLAB:
+        \begin{equation}
+            H*CNOT*H \ket{\psi}\tens{}\ket{\phi} = \begin{bmatrix}
+            1 &    0  &   0    & 0\\
+            0   & 0    & 0 &    1\\
+            0    & 0   & 1   & 0\\
+             0   & 1 &    0   &  0\\
+            \end{bmatrix} \begin{bmatrix}
+            ac\\ad\\bc\\bd
+            \end{bmatrix} = \begin{bmatrix}
+            ac\\bd\\bc\\ad
+            \end{bmatrix} 
+        \end{equation}
+        We see that the above expression equals that we found in eq.(12).
+        Therefore, we see that $H*CNOT*H \ket{\psi}\tens{}\ket{\phi} = CNOT_{2} \ket{\psi}\tens{}\ket{\phi}$, so the CNOT gate applied to the Hadamard Basis results in the CNOT gate with the target and control qubits swapped.
+    \end{enumerate}
+
+\subsection{Problem 2}
+    \begin{enumerate}
+        \item Alice and Bob cannot communicate with each other and are given information (using an agreed upon method) that X is 0 or 1 and Y is 0 or 1 respectively, and each person uses this information to decide whether to choose a value 0 or 1 for A and B respectively. Alice and Bob win if X*Y = A + mod(B). We can consider 4 scenarios that explore all possible permutations of A and B, as depicted in the below table:
+        \begin{table}[H]
+\centering
+\caption{Classical CHSH Game Results}
+\label{my-label}
+\begin{tabular}{lllll}
+\textbf{Scenario 1:} & \textbf{A = 0, B = 0} & \textbf{Ratio Wins/Losses} & \textbf{0.75} &  \\
+X & Y & A & B & \textbf{Result} \\
+0 & 0 & 0 & 0 & Win \\
+0 & 1 & 0 & 0 & Win \\
+1 & 0 & 0 & 0 & Win \\
+1 & 1 & 0 & 0 & Loss \\
+ &  &  &  &  \\
+\textbf{Scenario 2:} & \textbf{A = 1, B = 0} & \textbf{Ratio Wins/Losses} & \textbf{0.25} &  \\
+X & Y & A & B & \textbf{Result} \\
+0 & 0 & 1 & 0 & Loss \\
+0 & 1 & 1 & 0 & Loss \\
+1 & 0 & 1 & 0 & Loss \\
+1 & 1 & 1 & 0 & Win \\
+ &  &  &  &  \\
+\textbf{Scenario 3:} & \textbf{A = 0, B = 1} & \textbf{Ratio Wins/Losses} & \textbf{0.25} &  \\
+X & Y & A & B & \textbf{Result} \\
+0 & 0 & 0 & 1 & Loss \\
+0 & 1 & 0 & 1 & Loss \\
+1 & 0 & 0 & 1 & Loss \\
+1 & 1 & 0 & 1 & Win \\
+ &  &  &  &  \\
+\textbf{Scenario 4:} & \textbf{A = 1, B = 1} & \textbf{Ratio Wins/Losses} & \textbf{0} &  \\
+X & Y & A & B & \textbf{Result} \\
+0 & 0 & 1 & 1 & Loss \\
+0 & 1 & 1 & 1 & Loss \\
+1 & 0 & 1 & 1 & Loss \\
+1 & 1 & 1 & 1 & Loss
+\end{tabular}
+\end{table}
+    We see that the best chance Alice and Bob have at winning is in scenario 1, in which they both choose 0. Their winning percentage is capped off at 75$\%$.
+    \item We now consider the scenario in which Bob and Alice share a random string R that they will consult in addition to inputs x and y in order to determine final A and B values. We are wondering if this can cause our A and B values to change for a given x and y input such that the total probability of success for the classical game exceeds 0.75. However, we will prove that even with consulting random string R with a set of predetermined rules, we cannot exceed probability 0.75. We consider the case where without influence from R, A and B will normally/originally be chosen to be 0, normally resulting in the 0.75 success probability as seen above. The probability of finding the possible combinations of X and Y, both equal either to 0 or 1, is P(X$|$Y) = 25$\%$ or $\frac{1}{4}$ for each X and Y combination. After introducing R, and having Alice and Bob use it to change or not change to a new A and B value, we can specify that for a given X and Y value, the probability of both A and B changing as a result of R OR neither A and B changing as a result of R is p where 0 $\leq p \leq 1$. In the table below, i is replaced by certain numbers differentiating the probabilities. Thus, the probability of either A or B changing is 1-p. We see in the table below that for the first three XY combinations, that given the combination, the condition of still winning is when A = B, with an associated probability of p. For the last combination, when X=Y=1, the only way to win is when A does not equal B, with a conditional probability of 1-p. See the table below.
+    \begin{table}[H]
+\centering
+\caption{CHSH Game with Introduced Probability p resulting from random string R}
+\label{my-label}
+\begin{tabular}{lllllll}
+\textbf{Scenario:} & \multicolumn{1}{l|}{\textbf{}} & \textbf{} & \multicolumn{1}{l|}{\textbf{}} & \textbf{After consulting R} & \textbf{} & \textbf{} \\ \cline{1-4}
+\textbf{X} & \textbf{Y} & \textbf{$A_{original}$} & \textbf{$B_{original}$} & \textbf{P(no change or A and B change)} & \textbf{P(A or B changes)} & \textbf{P(win)*P(X$|$Y)} \\
+0 & 0 & 0 & 0 & p & 1-p & p/4 \\
+0 & 1 & 0 & 0 & p & 1-p & p/4 \\
+1 & 0 & 0 & 0 & p & 1-p & p/4 \\
+1 & 1 & 0 & 0 & p & 1-p & (1-p)/4
+\end{tabular}
+\end{table}
+The total probability of winning is thus the summation of the probability of winning given a certain XY combination multiplied times the probability of encountering that XY combination in the first place. Thus, we sum the probabilities in the right most column of the above table to find the total probability of success:
+\begin{equation}
+    P(success) = \frac{p + p + p}{4} + \frac{1-p}{4} = \frac{1 + 3p - p}{4} = \frac{1+ 2p}{4} \leq \frac{3}{4}
+\end{equation}
+And if we try to maximize this probability by setting p = 1, we still see that the maximum success probability is less than or equal to 0.75. We have only considered the scenarios when A and B are set to equal 0, which would normally maximize the success probability without R, but treating the other scenarios (mentioned in the first part of the problem) similarly will lead to the same result. We see that adding this random string R into the above scenario can only serve to decrease the success probability from its classical maximum of 0.75. The classical success probability has an upper limit of 0.75.
+    \end{enumerate}
+\end{document}
+

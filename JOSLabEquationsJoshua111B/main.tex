@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{gensymb}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{ {Images/} }
+\usepackage{amsmath}
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
+}
+%\usepackage[final]{pdfpages}
+
+
+%\usepackage[spanish]{babel}    
+\usepackage[T1]{fontenc}
+\usepackage{natbib}
+%\usepackage{array}
+%\usepackage{gensymb}
+\usepackage{indentfirst}
+%\usepackage[table,xcdraw]{xcolor}
+
+\title{JOSLabEquationsJoshua111B}
+\author{joshualevy44 }
+\date{April 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\begin{equation}
+    \psi = \sqrt{n}e^{i\phi}
+\end{equation}
+\begin{equation}
+\Psi_1 = \sqrt{n_1}e^{i\phi_1}, \Psi_2 = \sqrt{n_2}e^{i\phi_2}, n_1 \approx n_2 \approx n_0
+\end{equation}
+\begin{equation}
+H\Psi_1 = i\hbar \frac{\partial \Psi_1}{\partial t} = U_{01}\Psi_1 + K\Psi_2 
+\end{equation}
+\begin{equation}
+H\Psi_2 = i\hbar \frac{\partial \Psi_2}{\partial t} = U_{02}\Psi_2 + K\Psi_1
+\end{equation}
+\begin{equation}
+I = \frac{\partial n}{\partial t}
+\end{equation}
+\begin{equation}
+\frac{\partial n_1}{\partial t}=-\frac{\partial n_2}{\partial t}
+\end{equation}
+\begin{equation}
+\frac{\partial \delta}{\partial t} = \frac{-2eV(t)}{\hbar}
+\end{equation}
+\begin{equation}
+I = I_c sin(\delta)
+\end{equation}
+where $\delta = \phi_1 - \phi_2$, $I$ is the current from the left side to the right (1 to 2), ($I_c$ is critical current) and applied voltage $V = V_1 - V_2$.
+\begin{equation}
+V = V_0, I = I_c sin(\frac{2eV_o t}{\hbar} + \delta_0)
+\end{equation}
+\begin{equation}
+V = V_0 + V_1 sin(\omega t), I = I_c sin(\delta_0 + \frac{2eV_0t}{\hbar} + \frac{2eV_1}{\hbar \omega}sin(\omega t))
+\end{equation}
+\begin{equation}
+R_{roomTemp} = \frac{\Delta V_{h- actual}}{\Delta I_v} = \frac{\Delta V_{h-no- gain}*1k\Omega}{\Delta V_{v}*G}
+\end{equation}
+\begin{center}where $\Delta V$ = V(max) - V(min)\end{center}
+\begin{equation}
+I = \frac{V_v}{1k\Omega}, V = \frac{V_h}{G}
+\end{equation}
+\begin{table}[H]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{lll}
+\textbf{Sweep Oscillator Frequency (GHz)} & \textbf{Measured Resonance Frequency from Cavity (GHz)} & \textbf{Power (mW)} \\
+9 & 18.245 & 0.26 \\
+10 & 20.19 & 0.515 \\
+11 & 22.22 & 0.5 \\
+12 & 24.23 & 0.38 \\
+13 & 26.22 & 0.32
+\end{tabular}
+\end{table}
+\begin{equation}
+\sigma_G = \sqrt{(\frac{\sigma_{V_{preamp}}}{V_{box}})^2+(\frac{V_{preamp}*\sigma_{V_{box}}}{V_{box}^2})^2}
+\end{equation}
+\begin{equation}
+V_{v_j} (V_h) = a_j*e^{-(\frac{(V_h-b_j)}{c_j})^2 }
+\end{equation}
+\begin{equation}
+\Delta V_{h_i} = (b_{j+1}-c_{j+1}) - (b_j + c_j)
+\end{equation}
+\begin{equation}
+\sigma_{\Delta V_{h_i}} = \sqrt{\sigma_{b_{j+1}}^2 + \sigma_{c_{j+1}}^2 + \sigma_{b_{j}}^2 + \sigma_{c_{j}}^2}
+\end{equation}
+\begin{center}
+excluding any intervals that span between $b_j-c_j$ and $b_j+c_j$.
+\end{center}
+\begin{equation}
+\lambda\equiv\overline{\Delta V_h} = \frac{\sum_i w_i * \Delta V_{h_i}}{\sum_i w_i}
+\end{equation}
+\begin{equation}
+\sigma_\lambda = \frac{1}{\sqrt{\sum_i w_i}}
+\end{equation}
+\begin{equation}
+w_i = \frac{1}{\sigma_{\Delta V_{h_i}}}
+\end{equation}
+\begin{equation}
+\frac{2e}{h} = \frac{f*G}{\lambda}
+\end{equation}
+\begin{equation}
+\sigma_{\frac{2e}{h}} = 
+\sqrt{(\frac{f*G}{\lambda^2})^2\sigma_\lambda^2 + (\frac{G}{\lambda})^2\sigma_f^2 + (\frac{f}{\lambda})^2\sigma_G^2}
+
+\end{equation}
+\end{document}
