@@ -1,0 +1,296 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (30/4/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{deedy-resume-openfont}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\namesection{Joshua}{Levy}{ ``Exploring Data-Driven Solutions to Public Health Problems'' \\
+\href{mailto:joshualevy44@berkeley.edu}{joshualevy44@berkeley.edu} | 925.457.5752
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.33\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{UC Berkeley}
+
+
+\descript{Bachelor's in Physics}
+\location{May 2017 | Berkeley, CA}
+College of Letters \& Sciences \\
+Graduation- Highest Distinction (Top 1\%)\\
+Dean's List (Fall 2015, Spring 2016)\\
+Honors (All Semesters)\\
+\location{ Cum. GPA: 3.97 / 4.0\\Major GPA: 3.98 / 4.0}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links} 
+Github:// \href{https://github.com/jlevy44}{\custombold{jlevy44}} \\
+LinkedIn://  \href{https://www.linkedin.com/in/joshua-levy-87044913b/}{\custombold{joshualevy}} \\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coursework}
+\subsection{Undergraduate}
+Introduction to Health Promotion \\
+Health Policy and Management \\
+Linear Algebra and Differential Equations \\
+Multivariable Calculus and Intro Statistics \\
+Intro to C++ and Python \\
+Treating Mental Illness  \\
+Social Psychology and Sociology 
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\subsection{Technical Research Skills}
+Python \textbullet{} Matlab \textbullet{} Shell \textbullet{} Supercomputer \\ Statistical Analysis \textbullet{} Machine Learning \\ R \textbullet{} Qualtrics \textbullet{} \LaTeX{} \textbullet{} HTML \textbullet{} Labview \\ Image Analysis \textbullet{} Nextflow Pipelines \\ Photoshop \textbullet{} Microsoft Access \\ TensorFlow \textbullet{} Pilot 
+
+\subsection{\\Social Training}
+QPR (Question, Persuade, Refer) \textbullet{} Suicide Prevention Gatekeeper Training \textbullet{} Crisis Line Counselor \textbullet{} MHFA \textbullet{}
+Organizational Outreach \textbullet{} Coalition Building \textbullet{} Coaching \\ Volunteer Recruitment \textbullet{} Rapport Building
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Projects/Activities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\small{
+\section{Extracurriculars}
+\subsection{Select Projects and Clubs}
+\location{ You Mean More}
+\vspace{\topsep}
+\begin{tightemize}\item Mental Health Outreach \end{tightemize}
+\location{ Moving Minds}
+\begin{tightemize}\item Evidence-Based Mental Health Ed \end{tightemize}
+\location{ Google NF2}
+\begin{tightemize}\item Cancer Genomics Hackathon \end{tightemize}
+\location{ Spartan Racing }
+\begin{tightemize}\item Training for 15-Mile Obstacle Races \end{tightemize}
+\location{ Telescope Makers Workshop}
+}
+
+
+
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Clubs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\small{
+\begin{tabular}{p{1cm}p{5cm}}
+You Mean More & Organizational outreach, raised \$20k per year for American Foundation for Suicide Prevention, public speaking work in conferences and monologues \\
+Moving Minds & Expand evidence-based mental health education, received \$33k grant\\
+Google NF2 & Led team hackers study NF2 human genome \\
+Telescope Makers & Handcrafting telescope and mirror\\
+Spartan Racing & Multiple gruelling 15-mile obstacle course races\\
+
+
+\end{tabular}}
+\sectionsep
+
+\subsection{\\Languages}
+English \textbullet{} One semester of Chinese \textbullet{} High School Spanish \textbullet{} Read Hebrew
+
+\section{Extracurriculars} 
+
+
+\small{
+\begin{tabular}{rll}
+2015-2017 	& You Mean More  & Organizational Outreach Officer for Mental Health Awareness Club \\
+2012-2017   & Chabot Telescope Makers 
+ & Member- Handcrafting telescope mirror\\
+2015-2017   &  Spartan Racing & Participated in multiple gruelling 15-mile obstacle course races \\
+2015-2017   &  Intramural Sports & Played in and managed multiple sports teams, from dodgeball to basketball\\
+\end{tabular}}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     PROJECTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Projects} 
+\small{
+\begin{tabular}{{p{0.6cm}p{3.8cm}p{7cm}}}
+2016	     & Joshua Tree- Python   &  \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]\vspace{-1em} \item Developed Bioinformatics Pipeline That Found Ancestral Relations Between Hundreds of Species \end{itemize}\vspace{-1em}\\
+2017	     & PolyCracker-Nextflow/Python  & \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]\vspace{-1em} \item Bioinformatics Scaffolder \& Used Machine Learning to Discover Polyploid Progenitors \end{itemize}\vspace{-1em} \\
+2016	     & Agama Lizard Turns- Matlab  & \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]\vspace{-1em}\item Studied Turning Motion of Agama Lizards \& Conducted Vector/Probability Analysis of Movements\end{itemize}\vspace{-1em}\\
+2017	     & Google NF2 Project  & \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]\vspace{-1em}\item Led an NF2 Human Tumor Research Hacking Team\end{itemize}\vspace{-1em}\\
+2017     & Suicide Prevention Walk & \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]\vspace{-1em}\item Performed Organizational Outreach to Raise \$20k per year for Suicide Prevention and Research ( 2015 \& 2016) \end{itemize}\vspace{-1em}\\
+2016     & Moving Minds Initiative & \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]\vspace{-1em}\item Led Team to Expand Evidence-Based Mental Health Education Curriculum to Bay Area Schools\end{itemize}\vspace{-1em}\\
+2016     & Kognito for College Students- Grant Writing & \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]\vspace{-1em}\item Successfully Applied for \$33k Grant to Bring Online Interactive Mental Health Education to UC Berkeley Students; Built Stakeholder Support \end{itemize}\vspace{-1em}\\
+2016     & Mental Health Monologues \& Conference & \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]\vspace{-1em}\item Public Speaking at Events About Advocacy Work \& Promotion of Events
+\end{itemize}\vspace{-1em}
+\end{tabular}}
+\sectionsep
+
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experience}
+
+\runsubsection{San Francisco Department of Public Health- Tuberculosis Control}
+\descript{| Public Service Aide}
+\location{Sep 2017 – Present | San Francisco, CA}
+\vspace{\topsep}
+\begin{tightemize}
+\item Assist team in data analysis using biostatistics/epidemiologic methods.
+\item Prepare presentations and assist in various program evaluations.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Crisis Support Services of Alameda County}
+\descript{| Crisis Counselor \& Trainer}
+\location{June 2016 – Present | Oakland, CA}
+\begin{tightemize}
+\item Providing crisis counseling to callers across Alameda County, and the US. Build rapport, gather information and assess each client for suicidality.
+\item Performing administrative work for many California counties' behavioral health centers and ordering psych evaluations when necessary.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{American Heart Association}
+\descript{| Advocacy Intern}
+\location{May 2015 – Aug 2015 | Oakland, CA}
+\begin{tightemize}
+\item Researched political landscape around California minimum physical education standards and worked with stakeholders to ensure these standards are met.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Special Olympics of Northern California}
+\descript{| Head Coach of East Bay Track \& Field, Basketball, Softball}
+\location{Jan 2011 – Present | Concord, CA}
+\begin{tightemize}
+\item Leads practices for Special Olympics teams; organize, delegate tasks to other coaches and ensure productive practices with a focus on player development. Work with athletes to build good team chemistry and resolve conflicts.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Coaching Corps/Berkeley Unified School District}
+\descript{| Head Coach of Middle School Basketball \& Volunteer Recruiter}
+\location{Dec 2014 – June 2016 | Berkeley, CA}
+\begin{tightemize}
+\item Coached economically disadvantaged youth in the Berkeley area. Helped build a winning team culture and was very attentive to student athletes' needs.
+\item Hosted team building events and engaged stakeholders to recruit coaches.
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     RESEARCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Research}
+\runsubsection{Joint Genome Institute}
+\descript{| Bioinformatics Research Assistant }
+\location{ June 2016 – Sep 2017 | Walnut Creek, CA}
+\begin{tightemize}\item Spearheaded novel research methods to characterize quality features of plants that make good biofuels. Research projects Joshua Tree (learning evolutionary relations), PolyCracker (machine learning to understand polyploid progenitors), and Scaffolder (metagenome analysis) pending paper submissions.
+\item Used Python and Nextflow to build large data pipelines to make discoveries.
+\item Designed and presented findings to panel of researchers. In the process of writing research papers and patents.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{CiBER: Center for Integrative Biomechanics in Education \& Research}
+\descript{| Biomechanics Research Assistant }
+\location{April 2015 – June 2016 | Berkeley, CA}
+\begin{tightemize}
+\item Agama Lizard Turns: Captured high speed video of lizards turning. Worked with the lizards in order to produce results and tracked movements using ProAnalyst software. Calculated turning tendencies using Matlab.
+\end{tightemize}
+\sectionsep
+
+
+
+
+
+\end{minipage} 
+\end{document}
